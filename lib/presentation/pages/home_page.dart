@@ -1,3 +1,4 @@
+import 'package:app_1a/data/repositories/tarefa_repository.dart';
 import 'package:app_1a/presentation/pages/tarefa/tarefa_detail.dart';
 import 'package:app_1a/presentation/pages/tarefa/tarefa_form.dart';
 import 'package:flutter/material.dart';
@@ -11,19 +12,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Tarefa> tarefas = [
-    Tarefa('1','Trabalho de POO', '18:00', false),
-    Tarefa('2','Ir ao IFPI', '13:00', true),
-    Tarefa('3','Estudar para a prova', '21:00', false),
-    Tarefa('4','Pagar a lanchonete', '22:00', false)
-  ];
 
+  TarefaRepository repository = TarefaRepository();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Lista de Tarefas')),
       body: Column(
-        children: buildListItens(tarefas),
+        children: buildListItens(repository.all()),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
