@@ -1,4 +1,5 @@
 import 'package:app_1a/domain/tarefa.dart';
+import 'package:app_1a/presentation/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 
 class TarefaDetail extends StatelessWidget {
@@ -10,6 +11,7 @@ class TarefaDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      drawer: MyDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

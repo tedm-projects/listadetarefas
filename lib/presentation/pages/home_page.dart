@@ -1,6 +1,7 @@
 import 'package:app_1a/data/repositories/tarefa_repository.dart';
 import 'package:app_1a/presentation/pages/tarefa/tarefa_detail.dart';
 import 'package:app_1a/presentation/pages/tarefa/tarefa_form.dart';
+import 'package:app_1a/presentation/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:app_1a/domain/tarefa.dart';
 
@@ -19,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Lista de Tarefas')),
+      drawer: MyDrawer(),
       body: Column(
         children: buildListItens(repository.all()),
       ),
@@ -26,7 +28,9 @@ class _HomePageState extends State<HomePage> {
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: ((context) => TarefaForm())));
+              context, MaterialPageRoute(builder: ((context) => TarefaForm()))).then((value) {
+                setState(() {});
+              });
         },
       ),
     );

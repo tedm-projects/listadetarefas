@@ -7,4 +7,8 @@ class TarefaRepository {
     return Database.tarefas;
   }
   
+  void add(Tarefa tarefa) {
+    Database.tarefas.add(tarefa);
+  }
+
 }
